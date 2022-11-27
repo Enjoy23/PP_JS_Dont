@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.dto.RoleDTO;
 import ru.kata.spring.boot_security.demo.models.Role;
 import ru.kata.spring.boot_security.demo.reposetories.RolesReposetories;
-
 import java.util.HashSet;
 import java.util.Set;
 

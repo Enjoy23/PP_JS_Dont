@@ -1,14 +1,8 @@
 package ru.kata.spring.boot_security.demo.models;
 
-
-import org.hibernate.annotations.Cascade;
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
+import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
-
 
 @Entity
 @NamedEntityGraph(name = "User.role", attributeNodes = @NamedAttributeNode("roleList"))
@@ -20,7 +14,6 @@ public class User {
     private String name;
 
     private String surname;
-
 
     private String username;
 
@@ -112,5 +105,25 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return age == user.age && Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(surname, user.surname) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(roleList, user.roleList);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (id ^ (id >>> 32));
+        result = 31 * result + username.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + surname.hashCode();
+        result = 31 * result +  age;
+        result = 31 * result + password.hashCode();
+        result = 31 * result + roleList.hashCode();
+        return result;
     }
 }

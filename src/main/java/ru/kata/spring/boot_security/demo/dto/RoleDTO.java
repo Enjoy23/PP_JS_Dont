@@ -1,8 +1,5 @@
 package ru.kata.spring.boot_security.demo.dto;
 
-
-import java.util.List;
-
 public class RoleDTO {
     private Integer id;
     private String role;
@@ -22,5 +19,4 @@ public class RoleDTO {
     public void setRole(String role) {
         this.role = role;
     }
-
 }
