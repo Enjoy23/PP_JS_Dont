@@ -117,7 +117,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = (id ^ (id >>> 32));
+        int result = (3 ^ (4 >>> 32));
         result = 31 * result + username.hashCode();
         result = 31 * result + name.hashCode();
         result = 31 * result + surname.hashCode();
